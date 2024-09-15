@@ -6,7 +6,7 @@
     --fc-regular: rgb(236, 236, 236);
     --fc-error: rgb(255, 0, 0);
     --fs-small: clamp(0.75rem, 0.5rem + 1.5vw, 1rem);
-    --fs-regular: clamp(1rem, 0.5rem + 2vw, 1.3rem);
+    --fs-regular: clamp(1rem, 0.5rem + 2vw, 1.2rem);
     --fs-large: clamp(1.5rem, 0.6rem + 2.5vw, 1.75rem);    
     --fs-xlarge: clamp(1.5rem, 0.6rem + 3vw, 2.5rem);
     --fs-xxlarge: clamp(2.5rem, 0.8rem + 5vw, 5rem);
@@ -16,6 +16,8 @@
     --bg-color: rgba(49, 49, 49, 0.5);
     --bg-color-dark: rgba(26, 25, 25, 0.4);
     --bg-actColor:rgba(117, 116, 116, 0.4);
+    --bg-button: rgba(189, 3, 3, 0.61);
+    --bg-buttonAlt: rgba(255, 44, 44, 0.61);
     --brdr-color: rgb(221, 221, 221);
 }
 
@@ -46,6 +48,7 @@ header{
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
+    user-select: none;
 }
 
 .logo{
@@ -54,28 +57,75 @@ header{
     margin-inline-end: auto;
 }
 
-.iconItem{
-    width: var(--fs-small);
-    filter: invert();
-}
-
 .logo img,
 .icon img{
     aspect-ratio: 1/1;
     width: 100%;
 }
 
+.navItem{
+    transition: all 0.1s ease-in-out;
+}
+
 .icon{
     margin-inline-start: auto;
 }
 
+.iconItem{
+    width: var(--fs-regular);
+    filter: invert();
+    transition: all 0.1s ease-in-out;
+}
+
+.iconBtn{
+    margin-inline-start: var(--fs-small);
+    border: 1.4px solid var(--brdr-color);
+    border-radius: 15px;
+    background-color: var(--bg-button);
+    backdrop-filter: blur(2px);
+    box-shadow: 3px 3px 3px 3px black;
+    padding: calc(var(--fs-small)/3) calc(var(--fs-regular)/3);
+    transition: all 0.06s ease-in-out;
+}
+
+.iconBtn:hover,
+.iconItem:hover,
+.navItem:hover{
+    cursor: pointer;
+}
+
+.iconItem:hover,
+.navItem:hover{
+    scale: 1.3;
+}
+
+.iconBtn:hover{
+    background-color: var(--bg-buttonAlt);
+    scale: 1.08;
+}
+
+.iconBtn:active,
+.iconItem:active,
+.navItem:active{
+    cursor: pointer;
+    scale: 0.95;
+    transition: all 0.05s ease-in-out;
+}
+
 .navLinks,
 .iconLinks{
+    font-size: var(--fs-regular);
     display: flex;
-    gap: var(--fs-regular);
     align-items: center;
 }
 
+.navLinks{
+    gap: var(--fs-xlarge);
+}
+
+.iconLinks{
+    gap: var(--fs-regular);
+}
 
 
 
